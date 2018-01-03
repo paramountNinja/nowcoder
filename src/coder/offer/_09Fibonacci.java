@@ -25,7 +25,7 @@ package coder.offer;
  * 描述：输入一个整数n，输出fibonacci的第n项  使用递归实现
  */
  //@formatter:on
-public class _9Fibonacci {
+public class _09Fibonacci {
     public int Fibonacci(int n) {
         if (n == 0) return 0;
         if (n == 1) return 1;
@@ -33,7 +33,7 @@ public class _9Fibonacci {
     }
 
     public static void main(String[] args) {
-        _9Fibonacci instance = new _9Fibonacci();
+        _09Fibonacci instance = new _09Fibonacci();
         int i = instance.Fibonacci(5);
         System.out.println(i);
     }

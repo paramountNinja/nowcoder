@@ -25,7 +25,7 @@ package coder.offer;
  * 描述：非递减旋转数组中的最小数字   如{3,4,5,1,2}中找到最小的数字1
  */
  //@formatter:on
-public class _8MinNumberInRotatedArray {
+public class _08MinNumberInRotatedArray {
     public static int minNumberInRotateArray(int[] array) {
         if (array.length == 0) return 0;
         int low = 0;
@@ -54,7 +54,7 @@ public class _8MinNumberInRotatedArray {
 
     public static void main(String[] args) {
         int[] array = {2,3,4,1};
-        int i = _8MinNumberInRotatedArray.minNumberInRotateArray(array);
+        int i = _08MinNumberInRotatedArray.minNumberInRotateArray(array);
         System.out.println(i);
     }
 }

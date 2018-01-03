@@ -26,7 +26,7 @@ import sun.reflect.generics.tree.Tree; /**
  * 描述：输入前序遍历和中序遍历，不含重复数字，重建二叉树
  */
  //@formatter:on
-public class _6ReConstructBinaryTree {
+public class _06ReConstructBinaryTree {
     public TreeNode reConstructBinaryTree(int[] pre, int[] in) {
         return reConstruct(pre, 0, pre.length - 1, in, 0, in.length - 1);
     }

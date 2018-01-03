@@ -22,27 +22,18 @@ package coder.offer;
  *          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
  *                     佛祖保佑        永无BUG
  *
- * 描述：输入一个整数n，输出fibonacci的第n项  把中间项存起来，减少每次重复计算的开销 迭代
+ * 描述：我们可以用2*1的小矩形横着或者竖着去覆盖更大的矩形。请问用n个2*1的小矩形无重叠地覆盖一个2*n的大矩形，总共有多少种方法？
  */
  //@formatter:on
-public class _9Fibonacci_2 {
-    public int Fibonacci(int n) {
-        if (n <= 1) return n;
-        int firstNum = 0;
-        int secondNum = 1;
-        int thirdNum = 0;
-        for (int i = 2; i <= n; i++) {
-            thirdNum = firstNum + secondNum;
-            firstNum = secondNum;
-            secondNum = thirdNum;
-        }
-
-        return thirdNum;
-    }
-
-    public static void main(String[] args) {
-        _9Fibonacci_2 instance = new _9Fibonacci_2();
-        int i = instance.Fibonacci(5);
-        System.out.println(i);
+public class _09RectCover {
+    public int RectCover(int target) {
+        if (target <= 2)
+            return target;
+        return RectCover(target - 1) + RectCover(target - 2);
     }
 }
+
+// 假设我们横着放，则还剩f(n-1)
+// 假设我们竖着靠左放，则右边只能竖着再放一个，则还剩f(n-2)
+// f(n) = f(n-1) + f(n-2) Fibonacci
+// 这里用了递归的方法，当然也可以用迭代

@@ -31,7 +31,7 @@ import java.util.Stack;
  * 描述：从尾到头打印链表节点值   只读操作   使用栈方法
  */
  //@formatter:on
-public class _5PrintListTailToHead_1 {
+public class _05PrintListTailToHead_1 {
     public static ArrayList<Integer> printListFromTailToHead(ListNode listNode) {
         Deque<Integer> stack = new ArrayDeque<>();
         ListNode pNode = listNode;

@@ -22,27 +22,28 @@ package coder.offer;
  *          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
  *                     佛祖保佑        永无BUG
  *
- * 描述：跳台阶，一次可以跳1个或两个台阶，n个台阶有几种跳法。   f(n) = f(n-1) + f(n-2)
+ * 描述：两个栈实现一个队列
  */
  //@formatter:on
-public class _9JumpFloor {
-    public int JumpFloor(int target) {
-        if (target <= 2)
-            return target;
-        int first = 1;
-        int second = 2;
-        int third = 0;
-        for (int i = 3; i <= target; i++) {
-            third = first + second;
-            first = second;
-            second = third;
-        }
-        return third;
+
+import java.util.Stack;
+
+public class _07StackImplementsQueue {
+    Stack<Integer> stack1 = new Stack<Integer>();
+    Stack<Integer> stack2 = new Stack<Integer>();
+
+    public void push(int node) {
+        stack1.push(node);
     }
 
-    public int JumpFloor_2(int target) {
-        if (target <= 2)
-            return target;
-        return JumpFloor_2(target - 1) + JumpFloor_2(target - 2);
+    public int pop() {
+        if (stack2.size() != 0) {
+            return stack2.pop();
+        } else {
+            while (stack1.size() != 0) {//把1中所有的元素都弹出并推入2中
+                stack2.push(stack1.pop());
+            }
+            return stack2.pop();
+        }
     }
 }

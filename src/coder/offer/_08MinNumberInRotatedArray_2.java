@@ -1,5 +1,4 @@
 package coder.offer;
-
 //@formatter:off
 /**
  *                             _ooOoo_
@@ -23,21 +22,29 @@ package coder.offer;
  *          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
  *                     佛祖保佑        永无BUG
  *
- * 描述：一个二维数组，左到右、上到下递增，找一个数
+ * 描述：非递减旋转数组中的最小数字   如{3,4,5,1,2}中找到最小的数字1
  */
  //@formatter:on
-public class _3SearchIn2dArray {
-    public boolean Find(int target, int[][] array) {
-        if (array == null) return false;
-        int rows = array.length;
-        int cols = array[0].length;
-        int x = rows - 1;
-        int y = 0;
-        while (x >= 0 && y <= cols - 1) {
-            if (array[x][y] == target) return true;
-            else if (target > array[x][y]) y++;
-            else x--;
+public class _08MinNumberInRotatedArray_2 {
+    public static int minNumberInRotateArray(int[] array) {
+        int low = 0;
+        int high = array.length - 1;
+        while (low < high) {
+            int mid = low + (high - low) / 2;
+            if (array[mid] > array[high]) {
+                low = mid + 1;
+            } else if (array[mid] == array[high]) {
+                high = high - 1;
+            } else {
+                high = mid;
+            }
         }
-        return false;
+        return array[low];
+    }
+
+    public static void main(String[] args) {
+        int[] array = {1, 1, 1, 1, 1, 1, 0, 1, 1};
+        int i = _08MinNumberInRotatedArray_2.minNumberInRotateArray(array);
+        System.out.println(i);
     }
 }

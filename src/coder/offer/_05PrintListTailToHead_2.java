@@ -1,4 +1,8 @@
 package coder.offer;
+
+import java.util.ArrayList;
+
+
 //@formatter:off
 /**
  *                             _ooOoo_
@@ -22,23 +26,32 @@ package coder.offer;
  *          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
  *                     佛祖保佑        永无BUG
  *
- * 描述：一只青蛙跳n个台阶，每一次都可以跳1到n级。供n级台阶有几种跳法
+ * 描述：从尾到头打印链表节点值   只读操作   使用递归
  */
  //@formatter:on
-public class _9JumpFloorII {
-    public int JumpFloorII(int target) {
-        if (target == 1) return 1;
-        int first = 1;
-        int second = 0;
-        for (int i = 2; i <= target; i++) {
-            second = 2 * first;
-            first = second;
+public class _05PrintListTailToHead_2 {
+    ArrayList<Integer> list = new ArrayList<>();
+
+
+    public ArrayList<Integer> printListFromTailToHead(ListNode listNode) {
+        if (listNode != null) {
+            printListFromTailToHead(listNode.next);
+            list.add(listNode.val);
         }
-        return second;
+        return list;
+    }
+
+    public static void main(String[] args) {
+        ListNode node1 = new ListNode(1);
+        ListNode node2 = new ListNode(2);
+        ListNode node3 = new ListNode(3);
+        ListNode node4 = new ListNode(4);
+        node1.next = node2;
+        node2.next = node3;
+        node3.next = node4;
+        node4.next = null;
+        _05PrintListTailToHead_2 one = new _05PrintListTailToHead_2();
+        ArrayList<Integer> list = one.printListFromTailToHead(node1);
+        System.out.println(list);
     }
 }
-
-//一次跳1级，则剩下的有f(n-1)；一次跳2级，则剩下的有f(n-2)...
-//f(n) = f(n-1)+f(n-2)+...+f(1)+1
-//f(n-1) = f(n-2)+f(n-3)+...+f(1)+1
-//f(n) = 2*f(n-1)
