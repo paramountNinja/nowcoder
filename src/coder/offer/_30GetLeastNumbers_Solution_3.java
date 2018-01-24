@@ -27,38 +27,56 @@ package coder.offer;
  //@formatter:on
 
 import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.PriorityQueue;
 
-public class _30GetLeastNumbers_Solution_2 {
-    //最大堆的方法：使用jdk中的优先队列,返回的不一定是排好序的
+public class _30GetLeastNumbers_Solution_3 {
+    //最大堆的方法O(nlogn)
     public ArrayList<Integer> GetLeastNumbers_Solution(int[] input, int k) {
         ArrayList<Integer> list = new ArrayList<>();
         if (input == null || input.length <= 0 || k == 0 || k > input.length) return list;
-        PriorityQueue<Integer> maxHeap = new PriorityQueue<>(new Comparator<Integer>() {
-            @Override
-            public int compare(Integer o1, Integer o2) {
-                return o2.compareTo(o1); //最大的放前面,最大堆底层：二叉堆层次遍历一样的插入，然后把插入的元素根据大小往上移动（最大堆时则比上面的元素大就往上移动），直到移不动为止
-            }
-        });
-        for (int i = 0; i < input.length; i++) {
-            if (maxHeap.size() != k)
-                maxHeap.offer(input[i]);
-            else if (maxHeap.peek() > input[i]) {
-                maxHeap.poll();
-                maxHeap.offer(input[i]);
+        //构建最大堆
+        for (int i = k / 2; i >= 0; i--) {//从中间那个数开始，确保他的两倍不存在，这样往前一个个构建最大堆
+            adjustMaxHeap(input, i, k - 1);
+        }
+        //从第k个元素开始分别与最大堆的最大值做比较，如果比最大值小，则替换并调整堆
+        //最终堆里的就是最小的K个数
+        for (int j = k; j < input.length; j++) {
+            if (input[j] < input[0]) {
+                int tmp = input[0];
+                input[0] = input[j];
+                input[j] = tmp;
+                adjustMaxHeap(input, 0, k - 1);
             }
         }
-        for (Integer integer : maxHeap)
-            list.add(integer);
+        for (int m = 0; m < k; m++) {
+            list.add(input[m]);
+        }
         return list;
+    }
+
+    private void adjustMaxHeap(int[] input, int start, int end) {
+        //保存根节点（最大值）
+        int temp = input[start];
+        for (int i = 2 * start + 1; i <= end; i = 2 * i + 1) {
+            //找到左右儿子中的最大值
+            if (i < end && input[i + 1] > input[i])//右子树较大，小于end检验了是否有右子树
+                i++;
+            if (temp >= input[i])
+                break;
+            input[start] = input[i];
+            start = i;//被交换节点的标记
+        }
+        input[start] = temp;
+        //测试
+       /* for (int i = 0; i < input.length; i++)
+            System.out.print(input[i] + " ");
+        System.out.println();*/
     }
 
     //测试
     public static void main(String[] args) {
         int[] input = {4, 5, 1, 6, 2, 7, 3, 8};
         int k = 8;
-        _30GetLeastNumbers_Solution_2 instance = new _30GetLeastNumbers_Solution_2();
+        _30GetLeastNumbers_Solution_3 instance = new _30GetLeastNumbers_Solution_3();
         ArrayList<Integer> list = instance.GetLeastNumbers_Solution(input, k);
         System.out.println(list);
     }
