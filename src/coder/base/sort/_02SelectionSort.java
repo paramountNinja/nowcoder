@@ -1,7 +1,7 @@
 package coder.base.sort;
 
 //选择排序
-public class _2SelectionSort {
+public class _02SelectionSort {
     public static void selectionSort(int[] array) {
         if (array == null || array.length <= 0) return;
 
@@ -20,7 +20,7 @@ public class _2SelectionSort {
 
     public static void main(String[] args) {
         int[] array = {1, 2, 3, 5, 3, 4, 8, 10, 20, 101, 98, 2};
-        _2SelectionSort.selectionSort(array);
+        _02SelectionSort.selectionSort(array);
         for (int i = 0; i < array.length; i++) {
             System.out.print(array[i] + " ");
         }
