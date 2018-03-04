@@ -14,8 +14,7 @@ public class _01BubbleSort {
 
     public static void bubbleSort(int[] array) {
         if (array == null || array.length <= 0) return;
-        int p = array.length - 1;//指针，每回合往前移动一个
-        while (p > 0) {
+        for (int p = array.length - 1; p >= 0; p--) {
             for (int i = 0; i < p; i++) {//前一个和后面一个比较，故到倒数第二个位置
                 if (array[i] > array[i + 1]) {
                     int temp = array[i];
@@ -23,12 +22,11 @@ public class _01BubbleSort {
                     array[i + 1] = temp;
                 }
             }
-            p--;
         }
     }
 
     public static void main(String[] args) {
-        int[] array = {1, 2, 3, 5, 2, 3, 4, 8, 10, 20, 101, 98, -1, -2, -100, -98};
+        int[] array = {1, 2, 3, 5, 2, 3, 4, 8, 10, 20, 101, 98};
         _01BubbleSort.bubbleSort(array);
         for (int i = 0; i < array.length; i++) {
             System.out.print(array[i] + " ");
