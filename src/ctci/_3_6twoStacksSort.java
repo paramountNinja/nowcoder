@@ -31,7 +31,7 @@ import java.util.ArrayList;
 import java.util.Stack;
 
 public class _3_6twoStacksSort {
-    //构建一个辅助栈存放排好序的 和 一个变量存放临时值
+    //构建一个辅助栈存放排好序的（栈头是最大值） 和 一个变量存放临时值
     public ArrayList<Integer> twoStacksSort(int[] numbers) {
         ArrayList<Integer> res = new ArrayList<>();
         if (numbers == null || numbers.length == 0) return res;
