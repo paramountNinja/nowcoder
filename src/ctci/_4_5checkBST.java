@@ -27,34 +27,17 @@ package ctci;
  */
  //@formatter:on
 
-import java.util.Stack;
 
 public class _4_5checkBST {
-    //中序遍历判断
+    //中序遍历 保存上一个元素的值
+    int last = Integer.MIN_VALUE;
+
     public boolean checkBST(TreeNode root) {
-        if (root == null)
-            return true;
-        Stack<TreeNode> stack = new Stack<TreeNode>();
-        TreeNode p = root;
-        int pre = 0;// 用于保存中序遍历序列的上一节点值
-        boolean isFirst = true;
-        while (p != null || !stack.isEmpty()) {
-            while (p != null) {
-                stack.push(p);
-                p = p.left;
-            }
-            p = stack.pop();
-            if (isFirst) {
-                pre = p.val;
-                isFirst = false;
-            } else if (p.val < pre) {
-                return false;// 若当前遍历节点的值不大于上一遍历值，则违背了二叉排序树的规则
-            } else {
-                pre = p.val;
-            }
-            p = p.right;
-        }
+        if (root == null) return true;
+        if (!checkBST(root.left)) return false;   //左  如果上一层返回的是false,则直接返回false
+        if (root.val < last) return false;
+        last = root.val;
+        if (!checkBST(root.right)) return false;   //右
         return true;
     }
-
 }
