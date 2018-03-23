@@ -90,6 +90,7 @@ java实现
 
 ## 公司模拟真题(simulation)
 - 最多硬币问题
+- 最小不能表示的数(美团)
 
 ## 数据结构(base)
 - 排序算法（src/base/sort）
