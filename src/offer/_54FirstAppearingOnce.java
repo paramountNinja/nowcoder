@@ -29,14 +29,14 @@ package offer;
 public class _54FirstAppearingOnce {
     //一个字符占8位，因此不会超过256个，可以申请一个256大小的数组来实现一个简易的哈希表。
     // 时间复杂度为O(n)，空间复杂度O(n).
-    int[] temp = new int[256];
+    //一个字符占8bit，所以ascii码表中的字符256个，但只有128是可见的，所以数组大小改为128也没问题。
+    int[] temp = new int[128];
     StringBuilder s = new StringBuilder();
 
     //Insert one char from stringstream
     public void Insert(char ch) {
         s.append(ch);
-        if (temp[ch] == 0) temp[ch] = 1;
-        else temp[ch] += 1;
+        temp[ch]++;
 
     }
 
