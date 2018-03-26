@@ -27,7 +27,29 @@ package ctci;
  */
  //@formatter:on
 public class _1_6Transform {
+    //上下交换，然后按照主对角线交换
     public int[][] transformImage(int[][] mat, int n) {
-
+        if (mat == null) return null;
+        int rows = mat.length;
+        int cols = mat[0].length;
+        //按上下交换
+        for (int i = 0; i < rows / 2; i++) {
+            for (int j = 0; j < cols; j++) {
+                int temp = mat[i][j];
+                mat[i][j] = mat[cols - i - 1][j];
+                mat[cols - i - 1][j] = temp;
+            }
+        }
+        //再按对角线交换
+        for (int i = 0; i < cols; i++) {
+            for (int j = i; j < cols; j++) {
+                int temp = mat[i][j];
+                mat[i][j] = mat[j][i];
+                mat[j][i] = temp;
+            }
+        }
+        return mat;
     }
+
+
 }
