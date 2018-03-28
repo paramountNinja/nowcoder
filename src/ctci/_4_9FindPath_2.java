@@ -1,4 +1,4 @@
-package offer;
+package ctci;
 //@formatter:off
 /**
  *                             _ooOoo_
@@ -29,20 +29,20 @@ package offer;
 
 import java.util.ArrayList;
 
-public class _25FindPath_2 {
-    //跟解法1思路相同，不同的是这里不使用sum这个全局变量，而是改用target减的方法，较难理解,因为target是栈空间元素，局部变量，所以这里不需要再后面加回退时候的值
-    private ArrayList<ArrayList<Integer>> listAll = new ArrayList<ArrayList<Integer>>();
-    private ArrayList<Integer> list = new ArrayList<Integer>();
+public class _4_9FindPath_2 {
+    private ArrayList<ArrayList<Integer>> res = new ArrayList<>();
+    private ArrayList<Integer> list = new ArrayList<>();
 
     public ArrayList<ArrayList<Integer>> FindPath(TreeNode root, int target) {
-        if (root == null) return listAll;
-        list.add(root.val);
+        if (root == null) return res;
         target -= root.val;
-        if (target == 0 && root.left == null && root.right == null)
-            listAll.add(new ArrayList<Integer>(list));
+        list.add(root.val);
+        if (target == 0 && root.left == null && root.right == null) {
+            res.add(new ArrayList<>(list));
+        }
         FindPath(root.left, target);
         FindPath(root.right, target);
         list.remove(list.size() - 1);
-        return listAll;
+        return res;
     }
 }
