@@ -33,7 +33,7 @@ package ctci;
 import java.util.ArrayList;
 import java.util.Stack;
 
-public class _2_9SetOfStacks {
+public class _3_3SetOfStacks {
     public ArrayList<ArrayList<Integer>> setOfStacks(int[][] ope, int size) {
         ArrayList<ArrayList<Integer>> res = new ArrayList<>();
         if (ope == null) return res;
