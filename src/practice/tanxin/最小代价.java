@@ -1,4 +1,4 @@
-package practice;
+package practice.tanxin;
 
 import java.util.PriorityQueue;
 import java.util.Scanner;
@@ -43,6 +43,6 @@ public class 最小代价 {
 
 
 /*
-    贪心+最小堆(优先队列)
+    tanxin+最小堆(优先队列)
     哈夫曼编码 逆向思维
 */
