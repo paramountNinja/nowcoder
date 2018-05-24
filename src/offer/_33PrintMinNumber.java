@@ -28,8 +28,8 @@ public class _33PrintMinNumber {
 //解题思路：
 //先将整型数组转换成String数组，然后将String数组排序，最后将排好序的字符串数组拼接出来。关键就是制定排序规则。
 //排序规则如下：
-//若ab > ba 则 a > b，
-//若ab < ba 则 a < b，
-//若ab = ba 则 a = b；
+//若ab > ba 则 TrieTree > b，
+//若ab < ba 则 TrieTree < b，
+//若ab = ba 则 TrieTree = b；
 //解释说明：
 //比如 "3" < "31"但是 "331" > "313"，所以要将二者拼接起来进行比较

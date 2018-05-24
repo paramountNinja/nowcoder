@@ -26,7 +26,7 @@ public class 字符串全部子序列 {
 /*
 abc
 第一个位置要不要a; 第二个位置要不要b;第三个位置要不要c 打印叶子节点
-                a               ""
-           ab       a       b        ""
-       abc   ab   ac   a  bc  b     c   ""
+                TrieTree               ""
+           ab       TrieTree       b        ""
+       abc   ab   ac   TrieTree  bc  b     c   ""
  */

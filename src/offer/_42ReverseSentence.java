@@ -22,7 +22,7 @@ package offer;
  *          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
  *                     佛祖保佑        永无BUG
  *
- * 描述：例如，“student. a am I”。反转回 “I am a student.”
+ * 描述：例如，“student. TrieTree am I”。反转回 “I am TrieTree student.”
  */
  //@formatter:on
 public class _42ReverseSentence {

@@ -27,7 +27,7 @@ package offer;
  //@formatter:on
 public class _11Power_2 {
     //运用递归，时间复杂度O(logn)
-    //当n为偶数，a^n =（a^n/2）*（a^n/2） 当n为奇数，a^n = a^[(n-1)/2] * a^[(n-1)/2] * a
+    //当n为偶数，TrieTree^n =（TrieTree^n/2）*（TrieTree^n/2） 当n为奇数，TrieTree^n = TrieTree^[(n-1)/2] * TrieTree^[(n-1)/2] * TrieTree
 
     public double Power(double base, int exponent) {
         if (base == 0) {
@@ -46,7 +46,7 @@ public class _11Power_2 {
         if (absExponent == 0) return 1.0;
         if (absExponent == 1) return base;
         double result = power_recur(base, absExponent >> 1);
-        result *= result;//a^[(n-1)/2] * a^[(n-1)/2]
+        result *= result;//TrieTree^[(n-1)/2] * TrieTree^[(n-1)/2]
         if ((absExponent & 1) == 1) result *= base;//如果指数是奇数的话，再乘一个底数base
         return result;
     }

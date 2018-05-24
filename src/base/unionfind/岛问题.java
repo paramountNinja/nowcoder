@@ -54,3 +54,8 @@ public class 岛问题 {
         System.out.println(countIslands(m));
     }
 }
+
+/*
+并查集的思想
+将矩阵分成几块，然后每一块查找岛屿，将1相连，最后合并的时候减去边界在一起的
+ */
