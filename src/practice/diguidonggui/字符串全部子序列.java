@@ -1,4 +1,4 @@
-package practice.digui;
+package practice.diguidonggui;
 
 import java.util.Scanner;
 
