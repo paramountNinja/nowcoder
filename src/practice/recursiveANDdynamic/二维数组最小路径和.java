@@ -1,4 +1,4 @@
-package practice.diguidonggui;
+package practice.recursiveANDdynamic;
 
 /*
 二维数组，每个数都是正数，左上走到右下，每一步只能向右或向下，沿途数字加起来，返回最小路径和

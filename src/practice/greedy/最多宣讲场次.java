@@ -1,4 +1,4 @@
-package practice.tanxin;
+package practice.greedy;
 
 import java.util.Comparator;
 import java.util.PriorityQueue;

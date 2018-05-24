@@ -1,4 +1,4 @@
-package practice.diguidonggui;
+package practice.recursiveANDdynamic;
 
 import java.util.Scanner;
 import java.util.TreeSet;

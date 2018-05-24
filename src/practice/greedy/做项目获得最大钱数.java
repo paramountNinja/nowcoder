@@ -1,4 +1,4 @@
-package practice.tanxin;
+package practice.greedy;
 
 import java.util.Comparator;
 import java.util.PriorityQueue;
@@ -82,7 +82,7 @@ public class 做项目获得最大钱数 {
 
 /*
 IPO(公开募股)问题
-tanxin
+greedy
 小根堆  过滤出能做的项目
 大根堆  先做利润大的项目
  */
