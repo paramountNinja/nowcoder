@@ -1,4 +1,4 @@
-package practice.recursiveANDdynamic;
+package base.recursiveANDdynamic;
 
 /*
 一个数组arr都是正数，一个整数aim，如果可以任意选择arr中的数字，能不能累加得到aim，返回true或false

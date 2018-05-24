@@ -1,4 +1,4 @@
-package practice.recursiveANDdynamic;
+package base.recursiveANDdynamic;
 
 import java.util.Scanner;
 

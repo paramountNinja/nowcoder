@@ -1,4 +1,4 @@
-package practice.greedy;
+package base.greedy;
 
 import java.util.Comparator;
 import java.util.PriorityQueue;
