@@ -30,6 +30,43 @@ public class _03InsertionSort {
             System.out.print(array[i] + " ");
         }
     }
+
+    /**
+     * 通用方法：会交换元素
+     *
+     * @param a
+     * @param <T>
+     */
+    public static <T extends Comparable<T>> void insertionSort_general(T[] a) {
+        for (int i = 0; i < a.length; i++) {
+            for (int j = i; j - 1 >= 0; j--) {
+                if (a[j].compareTo(a[j - 1]) < 0) {
+                    T tmp = a[j];
+                    a[j] = a[j - 1];
+                    a[j - 1] = tmp;
+                } else {
+                    break;
+                }
+            }
+        }
+    }
+
+    /**
+     * 最终版：不交换，取出数据依次后移，插入到准确位置
+     *
+     * @param a
+     * @param <T>
+     */
+    public static <T extends Comparable<T>> void insertionSort_final(T[] a) {
+        for (int i = 0; i < a.length; i++) {
+            T tmp = a[i];
+            int j;
+            for (j = i; j - 1 >= 0 && tmp.compareTo(a[j - 1]) < 0; j--) {
+                a[j] = a[j - 1];
+            }
+            a[j] = tmp;
+        }
+    }
 }
 
 

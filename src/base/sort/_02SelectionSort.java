@@ -25,6 +25,27 @@ public class _02SelectionSort {
             System.out.print(array[i] + " ");
         }
     }
+
+    /**
+     * 通用选择排序（泛型）
+     *
+     * @param array
+     */
+    public static <E extends Comparable<E>> void selectionSort_general(E[] array) {
+        if (array == null || array.length <= 0) return;
+
+        for (int i = 0; i < array.length; i++) {
+            int min_index = i;
+            for (int j = i + 1; j < array.length; j++) { //这个循环主要找到最小值的下标
+                if (array[j].compareTo(array[min_index]) > 0)
+                    min_index = j;
+            }
+            E temp = array[i];
+            array[i] = array[min_index];
+            array[min_index] = temp;
+        }
+
+    }
 }
 
 
